@@ -9,7 +9,6 @@ import com.bumptech.glide.Glide
 import com.example.learningworldzhilt.databinding.RecyclerRowBinding
 import com.example.learningworldzhilt.databinding.RecyclerRowBinding.inflate
 import com.example.learningworldzhilt.network.RecyclerData
-import com.example.learningworldzhilt.network.RecyclerList
 
 class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>() {
 
@@ -52,6 +51,10 @@ class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolde
             with(binding) {
                 tvName.text = data.name
                 tvDesc.text = data.description
+
+                Glide.with(thumbImage)
+                    .load(data.owner?.avatar_url)
+                    .into(thumbImage)
             }
         }
     }
